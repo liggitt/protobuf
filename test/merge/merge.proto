@@ -15,3 +15,8 @@ message B {
 message C {
   int64 d = 1;
 }
+
+message D {
+  int64 e = 1 [(gogoproto.casttype) = "CustomSizedType"];
+  int64 f = 2 [(gogoproto.casttype) = "CustomUnsizedType"];
+}

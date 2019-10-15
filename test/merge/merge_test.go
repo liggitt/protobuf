@@ -66,3 +66,13 @@ func TestMerge5(t *testing.T) {
 		t.Fatalf("got %v want %v", f1, f3)
 	}
 }
+
+func TestMerge6(t *testing.T) {
+	f1 := &D{E: CustomSizedType(1), F: CustomUnsizedType(3)}
+	f2 := &D{E: CustomSizedType(2), F: CustomUnsizedType(4)}
+	f3 := &D{E: CustomSizedType(2), F: CustomUnsizedType(4)}
+	proto.Merge(f1, f2)
+	if !reflect.DeepEqual(f1, f3) {
+		t.Fatalf("got %v want %v", f1, f3)
+	}
+}
